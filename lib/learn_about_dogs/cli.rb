@@ -6,15 +6,16 @@ class LearnAboutDogs::CLI
 		puts ""
 		puts "----------------------------------------"
 		puts "       Learn all about dogs!            "
-		puts "											__								"
-		puts "										 /U'--,							"
-		puts "						 ,--'''''   /``							"
-		puts "			|____,``.  )       |___						"
-		puts "			'-----------'```-----'						"
+		puts ""
+			puts "					      __"
+			puts "				       /U'--,"
+			puts "*_      ,--'''''   /``"
+			puts " ||____,``.  )    |___"
+			puts " '-----------'```-----`"
 		puts "----------------------------------------"
 		breeds = make_dogs
 		@i = 0
-		@j = 9 
+		@j = 9
 		list_dogs(breeds)
 	end
 
