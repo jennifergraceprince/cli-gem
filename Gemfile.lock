@@ -36,7 +36,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  learn_about_dogs!
+  learn-about-dogs!
   pry
   rake (~> 12.0)
   rspec (~> 3.0)
