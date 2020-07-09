@@ -14,7 +14,7 @@ class LearnAboutDogs::CLI
 		puts "----------------------------------------"
 		breeds = make_dogs
 		@i = 0
-		@j = 9
+		@j = 9 
 		list_dogs(breeds)
 	end
 
@@ -25,7 +25,7 @@ class LearnAboutDogs::CLI
 		end
 	end
 
-	def list_dogs(breeds) #indexes through array of cat breeds returned from make_dogs and lists each one for user to select from
+	def list_dogs(breeds) #indexes through array of dog breeds returned from make_dogs and lists each one for user to select from
 		puts ""
 		breeds[@i..@i+@j].each.with_index(@i + 1) {|b,i|puts "[#{i}] #{b.name}"}
 		puts "[all]" if @j != 49
