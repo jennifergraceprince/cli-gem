@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jennifergraceprince@gmail.com"]
 
   spec.summary       = %q{A gem that helps the user learn about dogs.}
-  spec.homepage      = "https://github.com/jennifergraceprince/learn_about_dogs_cli_gem"
+  spec.homepage      = "https://github.com/jennifergraceprince/cli-gem/learn_about_dogs"
   spec.license       = "MIT"
 
 
