@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "bin/learn-about-dogs"
+require "learn_about_dogs"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
