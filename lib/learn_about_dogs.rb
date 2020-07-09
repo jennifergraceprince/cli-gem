@@ -2,8 +2,8 @@ require "pry"
 require 'nokogiri'
 require "open-uri"
 
-require "dog_breeds/version"
+require "learn_about_dogs/version"
 
-require_relative "./dog_breeds/cli.rb"
-require_relative "./dog_breeds/scraper.rb"
-require_relative "./dog_breeds/dogs.rb"
+require_relative "./learn_about_dogs/cli.rb"
+require_relative "./learn_about_dogs/scraper.rb"
+require_relative "./learn_about_dogs/dogs.rb"

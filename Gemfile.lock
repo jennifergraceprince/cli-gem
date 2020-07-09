@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    learn_about_dogs (0.1.4)
+    learn-about-dogs (0.1.4)
       nokogiri (>= 1.8.5)
 
 GEM
