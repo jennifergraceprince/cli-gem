@@ -17,11 +17,8 @@ Type the command below to get started:
 Select a dog type from the menu, either by entering a breed name or assigned number.
 Once you've selected a breed, you will be able to drill down to obtain further details on that particular breed. Type 'exit' at any point to leave the program.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+##Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/jennifergraceprince/learn_about_dogs_cli_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
