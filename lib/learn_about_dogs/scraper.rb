@@ -16,12 +16,11 @@ class LearnAboutDogs::Scraper
 	def self.scrape_profile(url) #creates and returns a hash of a dog breed with more information for the user to view
 		breed = {}
 		doc = Nokogiri::HTML(open(url))
-		breed[:blurb] = doc.css("#breed-detail p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
+		breed[:summary] = doc.css("#breed-detail p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:fun_fact] = doc.css(".interesting-breed-fact p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:description] = doc.css("#overview .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").gsub(" If the video doesn't start playing momentarily, please install the latest version of Flash.","").strip
 		breed[:history] = doc.css("#history .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:personality] = doc.css("#personality .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
-		breed[:health] = doc.css("#health .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:grooming] = doc.css("#grooming .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:characteristics] = scrape_characteristics(url)
 		breed

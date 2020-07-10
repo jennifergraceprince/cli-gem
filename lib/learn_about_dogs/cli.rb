@@ -19,14 +19,14 @@ class LearnAboutDogs::CLI
 		list_dogs(breeds)
 	end
 
-	def make_dogs #Scrapes site index page to gather all of the breeds and breed urls
+	def make_dogs #Scrapes /breeds to gather all of the breeds and breed urls
 		breeds_array = LearnAboutDogs::Scraper.scrape_index(BASE_PATH + "/cats/breeds")
 		breeds_array.collect do |breed|
 			LearnAboutDogs::Dog.new(breed[:name], breed[:page_url])
 		end
 	end
 
-	def list_dogs(breeds) #indexes the array of dog breeds returned from make_dogs and lists each one for user to select from
+	def list_dogs(breeds) #indexes the array of breeds returned from make_dogs and lists each one for user to select from
 		puts ""
 		breeds[@i..@i+@d].each.with_index(@i + 1) {|b,i|puts "#{i} - #{b.name}"}
 		puts "<- all ->" if @d != 243
@@ -86,7 +86,7 @@ class LearnAboutDogs::CLI
 		puts "The #{breed.name}"
 		puts "----------------------------------------"
 		puts ""
-		puts "#{breed.blurb}"
+		puts "#{breed.summary}"
 		puts ""
 		puts "Did you know?"
 		puts "#{breed.fun_fact}"

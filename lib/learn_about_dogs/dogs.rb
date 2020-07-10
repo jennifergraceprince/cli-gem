@@ -1,5 +1,5 @@
 class LearnAboutDogs::Dog
-	attr_accessor :name, :page_url, :blurb, :fun_fact, :description, :history, :personality, :health, :grooming, :characteristics
+	attr_accessor :name, :page_url, :summary, :fun_fact, :description, :history, :personality, :health, :grooming, :characteristics
 
 	@@all = []
 
