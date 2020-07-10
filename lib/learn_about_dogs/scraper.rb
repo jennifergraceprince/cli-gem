@@ -1,6 +1,6 @@
 class LearnAboutDogs::Scraper
 
-	def self.scrape_index(url) #creates and returns an array of hashes which contain dog breeds and page urls
+	def self.scrape_index(url) #creates and returns an array of hashes which contain breeds and page urls
 		learn_about_dogs = []
 		doc = Nokogiri::HTML(open(url))
 		breeds = doc.css("#hub-breed-list-container ul li a")
@@ -13,7 +13,7 @@ class LearnAboutDogs::Scraper
 		learn_about_dogs
 	end
 
-	def self.scrape_profile(url) #creates and returns a hash of a dog breed with more information for the user to view
+	def self.scrape_profile(url) #creates and returns a hash of a breed with more information for the user to view
 		breed = {}
 		doc = Nokogiri::HTML(open(url))
 		breed[:summary] = doc.css("#breed-detail p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
