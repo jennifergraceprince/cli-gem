@@ -89,7 +89,7 @@ class LearnAboutDogs::CLI
 		puts "#{breed.summary}"
 		puts ""
 		puts "Did you know?"
-		puts "#{breed.fun_fact}"
+		puts "#{breed.did_you_know}"
 		view_more_details(breed)
 	end
 

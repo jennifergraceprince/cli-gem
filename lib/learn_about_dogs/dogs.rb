@@ -1,5 +1,5 @@
 class LearnAboutDogs::Dog
-	attr_accessor :name, :page_url, :summary, :fun_fact, :description, :history, :personality, :health, :grooming, :characteristics
+	attr_accessor :name, :page_url, :summary, :did_you_know, :description, :history, :personality, :health, :grooming, :characteristics
 
 	@@all = []
 
@@ -9,7 +9,7 @@ class LearnAboutDogs::Dog
 		@@all << self
 	end
 
-	def add_details(details) #takes hash returned from LearnAboutDogs::Scraper.scrape_profile(url) and adds breed data to the corresponding instance of dog breed
+	def add_details(details) #takes hash returned from LearnAboutDogs::Scraper.scrape_profile(url) and adds breed data to the corresponding instance of breed
 		details.each do |k,v|
 			self.send("#{k}=", v)
 		end

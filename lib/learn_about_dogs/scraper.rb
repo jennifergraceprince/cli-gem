@@ -17,7 +17,7 @@ class LearnAboutDogs::Scraper
 		breed = {}
 		doc = Nokogiri::HTML(open(url))
 		breed[:summary] = doc.css("#breed-detail p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
-		breed[:fun_fact] = doc.css(".interesting-breed-fact p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
+		breed[:did_you_know] = doc.css(".interesting-breed-fact p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:description] = doc.css("#overview .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").gsub(" If the video doesn't start playing momentarily, please install the latest version of Flash.","").strip
 		breed[:history] = doc.css("#history .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
 		breed[:personality] = doc.css("#personality .richtext  p").text.gsub("\n","").gsub("\t","").gsub("\r","").strip
