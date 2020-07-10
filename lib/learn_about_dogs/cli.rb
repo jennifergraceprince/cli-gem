@@ -6,15 +6,16 @@ class LearnAboutDogs::CLI
 		puts ""
 		puts "----------------------------------------"
 		puts "       Learn all about dogs!            "
-		puts "											__								"
-		puts "										 /U'--,							"
-		puts "						 ,--'''''   /``							"
-		puts "			|____,``.  )       |___						"
-		puts "			'-----------'```-----'						"
+		puts ""
+			puts "                 __"
+			puts "                /U'--,"
+			puts "*_      ,--'''''   /``"
+			puts " ||____,``.  )    |___"
+			puts " '-----------'```-----`"
 		puts "----------------------------------------"
 		breeds = make_dogs
 		@i = 0
-		@j = 9 
+		@j = 9
 		list_dogs(breeds)
 	end
 
@@ -25,18 +26,18 @@ class LearnAboutDogs::CLI
 		end
 	end
 
-	def list_dogs(breeds) #indexes through array of dog breeds returned from make_dogs and lists each one for user to select from
+	def list_dogs(breeds) #indexes the array of dog breeds returned from make_dogs and lists each one for user to select from
 		puts ""
 		breeds[@i..@i+@j].each.with_index(@i + 1) {|b,i|puts "[#{i}] #{b.name}"}
-		puts "[all]" if @j != 49
-		puts "[less]" if @j == 49
+		puts "[all]" if @j != 243
+		puts "[less]" if @j == 243
 		puts "[next]" if @i == 0 && @j == 9
-		puts "[back||next]" if @i >= 10 && @i+@j <49
-		puts "[back]" if @i+@j >= 49 && @j == 9
+		puts "[back||next]" if @i >= 10 && @i+@j <243
+		puts "[back]" if @i+@j >= 243 && @j == 9
 		puts ""
 		puts "type [exit] at any time to close"
 		puts ""
-		puts "Enter the dog breed or number that you would like to learn more about:"
+		puts "Enter the dog breed name or menu number you want to learn about:"
 		input = gets.strip
 		if input.to_i > 0 && input.to_i <= breeds.length
 			view_breed_overview(LearnAboutDogs::Dog.all[input.to_i - 1])
@@ -44,13 +45,13 @@ class LearnAboutDogs::CLI
 			view_breed_overview(LearnAboutDogs::Dog.all.detect{|breed| breed.name.downcase == input.downcase})
 		elsif input.downcase == "all"
 			@i = 0
-			@j = 49
+			@j = 243
 			list_dogs(breeds)
 		elsif input.downcase == "less"
 			@i = 0
 			@j = 9
 			list_dogs(breeds)
-		elsif input.downcase == "next" && @i+@j == 49
+		elsif input.downcase == "next" && @i+@j == 243
 			puts ""
 			puts "That's every dog breed!"
 			list_dogs(breeds)
@@ -170,15 +171,17 @@ class LearnAboutDogs::CLI
 
 	def goodbye #upon exiting the program, the user is presented a thank you and dog artwork
 		puts ""
-		puts "Hope you learned something new about dogs!"
 		puts ""
 		puts "----------------------------------------"
-		puts "       Goodbye!                         "
-		puts "											__								"
-		puts "										 /U'--,							"
-		puts "						 ,--'''''   /``							"
-		puts "			|____,``.  )       |___						"
-		puts "			'-----------'```-----'						"
+		puts "Hope you learned something new about dogs!"
+		puts "       See ya later!!            "
+		puts ""
+			puts "                 __"
+			puts "                /U'--,"
+			puts "*_      ,--'''''   /``"
+			puts " ||____,``.  )    |___"
+			puts " '-----------'```-----`"
+		puts "----------------------------------------"
 		puts "----------------------------------------"
 		puts ""
 		exit

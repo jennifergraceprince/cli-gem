@@ -38,7 +38,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   learn_about_dogs!
   pry
-  rake (~> 12.0)
+  rake (~> 12.3.3)
   rspec (~> 3.0)
 
 BUNDLED WITH
