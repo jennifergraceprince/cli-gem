@@ -38,9 +38,9 @@ class LearnAboutCats::CLI
 		puts "Enter the NAME or MENU NUMBER of a breed you'd like to learn about:"
 		input = gets.strip
 		if input.to_i > 0 && input.to_i <= breeds.length
-			view_breed_overview(LearnAboutCats::Cat.all[input.to_i - 1])
+			view_breed_summary(LearnAboutCats::Cat.all[input.to_i - 1])
 		elsif LearnAboutCats::Cat.all.detect{|breed|breed.name.downcase == input.downcase}
-			view_breed_overview(LearnAboutCats::Cat.all.detect{|breed| breed.name.downcase == input.downcase})
+			view_breed_summary(LearnAboutCats::Cat.all.detect{|breed| breed.name.downcase == input.downcase})
 		elsif input.downcase == "all"
 			@i = 0
 			@d = 243
@@ -72,7 +72,7 @@ class LearnAboutCats::CLI
 		end
 	end
 
-	def view_breed_overview(breed) #when choosing a breed, this method scrapes that breed's url page for more information
+	def view_breed_summary(breed) #when choosing a breed, this method scrapes that breed's url page for more information
 		details = LearnAboutCats::Scraper.scrape_profile(BASE_PATH + breed.page_url)
 		breed.add_details(details)
 		puts ""
@@ -88,7 +88,7 @@ class LearnAboutCats::CLI
 		view_more_details(breed)
 	end
 
-	def view_more_details(breed) #after more info is scraped from view_breed_overview, more options are presented to learn more about breed
+	def view_more_details(breed) #after more info is scraped from view_breed_summary, more options are presented to learn more about breed
 		puts ""
 		puts "Continue learning about the #{breed.name}:"
 		puts "1 - Description"
