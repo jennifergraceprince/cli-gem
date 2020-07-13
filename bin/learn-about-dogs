@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-
-require "bundler/setup"
-require_relative '../lib/learn_about_dogs'
-
-LearnAboutDogs::CLI.new.start

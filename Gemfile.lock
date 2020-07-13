@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    learn_about_dogs (0.1.4)
+    learn_about_cats (0.1.0)
       nokogiri (>= 1.8.5)
 
 GEM
@@ -36,7 +36,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  learn_about_dogs!
+  learn_about_cats!
   pry
   rake (~> 12.3.3)
   rspec (~> 3.0)

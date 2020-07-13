@@ -1,15 +1,15 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "learn_about_dogs/version"
+require "learn_about_cats/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "learn_about_dogs"
-  spec.version       = LearnAboutDogs::VERSION
+  spec.name          = "learn_about_cats"
+  spec.version       = LearnAboutCats::VERSION
   spec.authors       = ["Jennifer Prince"]
   spec.email         = ["jennifergraceprince@gmail.com"]
 
-  spec.summary       = %q{A gem that helps the user learn about dogs.}
+  spec.summary       = %q{A gem that helps the user learn about cats.}
   spec.homepage      = "https://github.com/jennifergraceprince/cli-gem/"
   spec.license       = "MIT"
 
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
 
-  spec.executables << 'learn-about-dogs'
+  spec.executables << 'learn-about-cats'
 
   spec.require_paths = ["lib"]
 
