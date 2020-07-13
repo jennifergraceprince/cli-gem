@@ -26,11 +26,11 @@ class LearnAboutCats::CLI
 		puts ""
 		breeds[@i..@i+@d].each.with_index(@i + 1) {|b,i|puts "#{i} - #{b.name}"}
 		puts ""
-		puts "<- all ->" if @d != 243
-		puts "<- less  " if @d == 243
+		puts "<- all ->" if @d != 49
+		puts "<- less  " if @d == 49
 		puts "  next ->" if @i == 0 && @d == 9
-		puts "<- previous || next ->" if @i >= 10 && @i+@d <243
-		puts "<- previous  " if @i+@d >= 243 && @d == 9
+		puts "<- previous || next ->" if @i >= 10 && @i+@d <49
+		puts "<- previous  " if @i+@d >= 49 && @d == 9
 		puts ""
 		puts "type ALL to see the full list."
 		puts "type LESS from the full list to return to the truncated list."
@@ -48,13 +48,13 @@ class LearnAboutCats::CLI
 			view_breed_summary(LearnAboutCats::Cat.all.detect{|breed| breed.name.downcase == input.downcase})
 		elsif input.downcase == "all"
 			@i = 0
-			@d = 243
+			@d = 49
 			list_of_cats(breeds)
 		elsif input.downcase == "less"
 			@i = 0
 			@d = 9
 			list_of_cats(breeds)
-		elsif input.downcase == "next" && @i+@d == 243
+		elsif input.downcase == "next" && @i+@d == 49
 			puts ""
 			puts "That's the whole list!"
 			list_of_cats(breeds)
