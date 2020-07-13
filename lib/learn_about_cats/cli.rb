@@ -6,6 +6,8 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "----------------------------------------"
 		puts "       Learn all about kitty cats!"
+		puts ""
+		puts "                 =^o.o^="
 		puts "----------------------------------------"
 		breeds = create_cats
 		@i = 0
@@ -23,6 +25,7 @@ class LearnAboutCats::CLI
 	def list_of_cats(breeds) #indexes the array of breeds returned from create_cats and lists each one for user to select from
 		puts ""
 		breeds[@i..@i+@d].each.with_index(@i + 1) {|b,i|puts "#{i} - #{b.name}"}
+		puts ""
 		puts "<- all ->" if @d != 243
 		puts "<- less  " if @d == 243
 		puts "  next ->" if @i == 0 && @d == 9
@@ -34,6 +37,8 @@ class LearnAboutCats::CLI
 		puts "type NEXT to page through the list 10 at a time."
 		puts "type PREVIOUS to return to the preview view."
 		puts "type EXIT at any time to close the program."
+		puts ""
+		puts "                 =^o.o^="
 		puts ""
 		puts "Enter the NAME or MENU NUMBER of a breed you'd like to learn about:"
 		input = gets.strip
@@ -58,7 +63,7 @@ class LearnAboutCats::CLI
 			list_of_cats(breeds)
 		elsif input.downcase == "previous" && @i == 0
 			puts ""
-			puts "That's the whole list!"
+			puts "That's the whole darn list!"
 			list_of_cats(breeds)
 		elsif input.downcase == "previous"
 			@i -= 10
@@ -67,7 +72,9 @@ class LearnAboutCats::CLI
 			self.goodbye
 		else
 			puts ""
-			puts "Please make a valid input."
+			puts "Me-ow! That's not a valid input. Try a menu number or typing out the word you are selecting!"
+			puts ""
+			puts "                 =^o.o^="
 			self.list_of_cats(breeds)
 		end
 	end
@@ -78,6 +85,7 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "----------------------------------------"
 		puts "The #{breed.name}"
+		puts ""
 		puts "                 =^o.o^="
 		puts "----------------------------------------"
 		puts ""
@@ -91,11 +99,14 @@ class LearnAboutCats::CLI
 	def view_more_details(breed) #after more info is scraped from view_breed_summary, more options are presented to learn more about breed
 		puts ""
 		puts "Continue learning about the #{breed.name}:"
+		puts ""
+		puts "                 =^o.o^="
+		puts ""
 		puts "1 - Description"
 		puts "2 - History"
 		puts "3 - Personality"
 		puts "4 - Grooming"
-		puts "To search another breed or return to main menu, type PREVIOUS."
+		puts "To search another breed or return to the main menu, type PREVIOUS."
 		input = gets.strip
 		topic = nil
 		info = nil
@@ -119,6 +130,9 @@ class LearnAboutCats::CLI
 		else
 			puts ""
 			puts "Uh oh! Not a valid input. Try a valid option."
+			puts ""
+			puts "                 =^o.o^="
+			puts ""
 			view_more_details(breed)
 		end
 		view_topic(breed, topic, info)
@@ -137,8 +151,8 @@ class LearnAboutCats::CLI
 			info.call
 		end
 		puts ""
-		puts "1 - See details about the #{breed.name}"
-		puts "2 - Return to the previous menu."
+		puts "1 - Keep learning about the #{breed.name} breed!"
+		puts "2 - Go back to the previous menu."
 		input = gets.strip
 		case input.downcase
 		when "1"
@@ -150,6 +164,7 @@ class LearnAboutCats::CLI
 		else
 			puts ""
 			puts "Whoops! That isn't a valid input. Please try again :)"
+			puts ""
 			view_topic(breed, topic, info)
 		end
 	end
@@ -159,9 +174,10 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "----------------------------------------"
 		puts "Hope you learned something new about cats!"
-		puts "       See ya later!!            "
 		puts ""
-		puts "----------------------------------------"
+		puts "                 =^o.o^="
+		puts ""
+		puts "MEOW CIAO!"
 		puts "----------------------------------------"
 		puts ""
 		exit
