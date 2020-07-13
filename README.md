@@ -1,21 +1,20 @@
 # Learn About cats
 
-A CLI gem that scrapes a website to help the user learn about the characteristics of various cat breeds.  
+A CLI program that scrapes a website to help the user learn about the characteristics of various cat breeds.  
 
 ## Installation
 
+Clone this repository.
+Enter the repository on via your command line, then execute the follow command:
+
 ```ruby
-gem install learn_about_cats
+bin/learn-about-cats
 ```
 
 ## Usage
 
-Type the command below to get started:
-
-    $ learn-about-cats
-
-Select a cat type from the menu, either by entering a breed name or assigned number.
-Once you've selected a breed, you will be able to drill down to obtain further details on that particular breed. Type 'exit' at any point to leave the program.
+Select a cat type from the menu, either by typing the breed name or menu number, then hitting enter.
+A submenu for that breed will appear. You'll have 4 options to choose from to learn more about the breed you've chosen. You'll also have an option to return to the main menu. If you select any option from the submenu, you will see the information for that breed and the category displayed.  You will also have the option to return to the breed's submenu or to the main menu.
 
 ##Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/jennifergraceprince/learn_about_cats_cli_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
