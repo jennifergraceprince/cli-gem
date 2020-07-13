@@ -92,11 +92,9 @@ class LearnAboutDogs::CLI
 		puts ""
 		puts "Continue learning about the #{breed.name}:"
 		puts "1 - Description"
-	#	puts "2 - Characteristics"
 		puts "2 - History"
 		puts "3 - Personality"
 		puts "4 - Grooming"
-#		puts "5 - Health"
 		puts "To search another breed or return to main menu, type PREVIOUS."
 		input = gets.strip
 		topic = nil
@@ -105,14 +103,6 @@ class LearnAboutDogs::CLI
 		when "1","description"
 			topic = "Description"
 			info = breed.description
-#		when "2","characteristics"
-#			topic = "Characteristics"
-#			info = Proc.new{
-#				i = 0
-#				while i < breed.characteristics.length
-#					puts "#{breed.characteristics[i][0]}: #{breed.characteristics[i][1]}"
-##				end
-#				}
 		when "2","history"
 			topic = "History"
 			info = breed.history
@@ -122,9 +112,6 @@ class LearnAboutDogs::CLI
 		when "4","grooming"
 			topic = "Grooming"
 			info = breed.grooming
-#		when "5","health"
-#			topic = "Health"
-#			info = breed.health
 		when "previous"
 			start
 		when "exit"
@@ -179,5 +166,4 @@ class LearnAboutDogs::CLI
 		puts ""
 		exit
 	end
-
 end
