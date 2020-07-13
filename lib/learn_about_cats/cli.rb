@@ -7,20 +7,20 @@ class LearnAboutCats::CLI
 		puts "----------------------------------------"
 		puts "       Learn all about kitty cats!"
 		puts "----------------------------------------"
-		breeds = make_cats
+		breeds = create_cats
 		@i = 0
 		@d = 9
-		list_cats(breeds)
+		list_of_cats(breeds)
 	end
 
-	def make_cats #Scrapes /breeds to gather all of the breeds and breed urls
+	def create_cats #Scrapes /breeds to gather all of the breeds and breed urls
 		breeds_array = LearnAboutCats::Scraper.scrape_index(BASE_PATH + "/cats/breeds")
 		breeds_array.collect do |breed|
-			LearnAboutCats::Cat.new(breed[:name], breed[:page_url])
+			LearnAboutCats::Cat.new(breed[:name], breed[:breed_url])
 		end
 	end
 
-	def list_cats(breeds) #indexes the array of breeds returned from make_cats and lists each one for user to select from
+	def list_of_cats(breeds) #indexes the array of breeds returned from create_cats and lists each one for user to select from
 		puts ""
 		breeds[@i..@i+@d].each.with_index(@i + 1) {|b,i|puts "#{i} - #{b.name}"}
 		puts "<- all ->" if @d != 243
@@ -44,36 +44,36 @@ class LearnAboutCats::CLI
 		elsif input.downcase == "all"
 			@i = 0
 			@d = 243
-			list_cats(breeds)
+			list_of_cats(breeds)
 		elsif input.downcase == "less"
 			@i = 0
 			@d = 9
-			list_cats(breeds)
+			list_of_cats(breeds)
 		elsif input.downcase == "next" && @i+@d == 243
 			puts ""
 			puts "That's the whole list!"
-			list_cats(breeds)
+			list_of_cats(breeds)
 		elsif input.downcase == "next"
 			@i += 10
-			list_cats(breeds)
+			list_of_cats(breeds)
 		elsif input.downcase == "previous" && @i == 0
 			puts ""
 			puts "That's the whole list!"
-			list_cats(breeds)
+			list_of_cats(breeds)
 		elsif input.downcase == "previous"
 			@i -= 10
-			list_cats(breeds)
+			list_of_cats(breeds)
 		elsif input.downcase == "exit"
 			self.goodbye
 		else
 			puts ""
 			puts "Please make a valid input."
-			self.list_cats(breeds)
+			self.list_of_cats(breeds)
 		end
 	end
 
 	def view_breed_summary(breed) #when choosing a breed, this method scrapes that breed's url page for more information
-		details = LearnAboutCats::Scraper.scrape_profile(BASE_PATH + breed.page_url)
+		details = LearnAboutCats::Scraper.scrape_profile(BASE_PATH + breed.breed_url)
 		breed.add_details(details)
 		puts ""
 		puts "----------------------------------------"

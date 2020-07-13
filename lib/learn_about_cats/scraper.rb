@@ -7,7 +7,7 @@ class LearnAboutCats::Scraper
 		breeds.each do |b|
 			breed = {}
 			breed[:name] = b.text
-			breed[:page_url] = b.attr("href")
+			breed[:breed_url] = b.attr("href")
 			learn_about_cats << breed
 		end
 		learn_about_cats

@@ -1,11 +1,11 @@
 class LearnAboutCats::Cat
-	attr_accessor :name, :page_url, :summary, :did_you_know, :description, :history, :personality, :grooming
+	attr_accessor :name, :breed_url, :summary, :did_you_know, :description, :history, :personality, :grooming
 
 	@@all = []
 
-	def initialize(name, page_url)
+	def initialize(name, breed_url)
 		@name = name
-		@page_url = page_url
+		@breed_url = breed_url
 		@@all << self
 	end
 
