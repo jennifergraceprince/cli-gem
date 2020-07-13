@@ -5,13 +5,7 @@ class LearnAboutDogs::CLI
 	def start
 		puts ""
 		puts "----------------------------------------"
-		puts "       Learn all about dogs!            "
-		puts ""
-			puts "                 __"
-			puts "                /U'--,"
-			puts "*_      ,--'''''   /``"
-			puts " ||____,``.  )    |___"
-			puts " '-----------'```-----`"
+		puts "       Learn all about kitty cats!"
 		puts "----------------------------------------"
 		breeds = make_dogs
 		@i = 0
@@ -84,6 +78,7 @@ class LearnAboutDogs::CLI
 		puts ""
 		puts "----------------------------------------"
 		puts "The #{breed.name}"
+		puts "                 =^o.o^="
 		puts "----------------------------------------"
 		puts ""
 		puts "#{breed.summary}"
@@ -97,11 +92,11 @@ class LearnAboutDogs::CLI
 		puts ""
 		puts "Continue learning about the #{breed.name}:"
 		puts "1 - Description"
-		puts "2 - Characteristics"
-		puts "3 - History"
-		puts "4 - Personality"
-		puts "5 - Grooming"
-		puts "6 - Health"
+	#	puts "2 - Characteristics"
+		puts "2 - History"
+		puts "3 - Personality"
+		puts "4 - Grooming"
+#		puts "5 - Health"
 		puts "To search another breed or return to main menu, type PREVIOUS."
 		input = gets.strip
 		topic = nil
@@ -110,34 +105,33 @@ class LearnAboutDogs::CLI
 		when "1","description"
 			topic = "Description"
 			info = breed.description
-		when "2","characteristics"
-			topic = "Characteristics"
-			info = Proc.new{
-				i = 0
-				while i < breed.characteristics.length
-					puts "#{breed.characteristics[i][0]}: #{breed.characteristics[i][1]}"
-					i += 1
-				end
-				}
-		when "3","history"
+#		when "2","characteristics"
+#			topic = "Characteristics"
+#			info = Proc.new{
+#				i = 0
+#				while i < breed.characteristics.length
+#					puts "#{breed.characteristics[i][0]}: #{breed.characteristics[i][1]}"
+##				end
+#				}
+		when "2","history"
 			topic = "History"
 			info = breed.history
-		when "4","personality"
+		when "3","personality"
 			topic = "Personality"
 			info = breed.personality
-		when "5","grooming"
+		when "4","grooming"
 			topic = "Grooming"
 			info = breed.grooming
-		when "6","health"
-			topic = "Health"
-			info = breed.health
+#		when "5","health"
+#			topic = "Health"
+#			info = breed.health
 		when "previous"
 			start
 		when "exit"
 			goodbye
 		else
 			puts ""
-			puts "Please make a valid input."
+			puts "Uh oh! Not a valid input. Try a valid option."
 			view_more_details(breed)
 		end
 		view_topic(breed, topic, info)
@@ -157,18 +151,18 @@ class LearnAboutDogs::CLI
 		end
 		puts ""
 		puts "1 - See details about the #{breed.name}"
-		puts "2 - Return to previous menu."
+		puts "2 - Return to the previous menu."
 		input = gets.strip
 		case input.downcase
 		when "1"
 			view_more_details(breed)
-		when "2","personality"
+		when "2","history"
 			start
 		when "exit"
 			goodbye
 		else
 			puts ""
-			puts "Please make a valid input."
+			puts "Whoops! That isn't a valid input. Please try again :)"
 			view_topic(breed, topic, info)
 		end
 	end
@@ -177,14 +171,9 @@ class LearnAboutDogs::CLI
 		puts ""
 		puts ""
 		puts "----------------------------------------"
-		puts "Hope you learned something new about dogs!"
+		puts "Hope you learned something new about cats!"
 		puts "       See ya later!!            "
 		puts ""
-			puts "                 __"
-			puts "                /U'--,"
-			puts "*_      ,--'''''   /``"
-			puts " ||____,``.  )    |___"
-			puts " '-----------'```-----`"
 		puts "----------------------------------------"
 		puts "----------------------------------------"
 		puts ""
