@@ -2,6 +2,7 @@ require "pry"
 require 'nokogiri'
 require "open-uri"
 require "colorize"
+require "launchy"
 
 require "learn_about_cats/version"
 

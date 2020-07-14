@@ -153,10 +153,6 @@ class LearnAboutCats::CLI
 
 	end
 
-	def open_as_webpage
-
-	end
-
 	def view_topic(breed, topic, info) #once specific topic is selected, more information on that topic is presented to the user
 		puts ""
 		puts "----------------------------------------".yellow.bold
@@ -179,8 +175,9 @@ class LearnAboutCats::CLI
 		when "2","history"
 			start
 		when "3"
-			open_as_webpage(BASE PATH + breed.breed_url)
-			puts "Opening in your default web browser.".yellow.bold
+			Launchy.open("http://www.vetstreet.com/" + breed.breed_url)
+			puts "Opening your web browser."
+			view_more_details(breed)
 		when "exit"
 			goodbye
 		else
