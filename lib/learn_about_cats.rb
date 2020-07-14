@@ -1,7 +1,7 @@
 require "pry"
 require 'nokogiri'
 require "open-uri"
-require "watir"
+require "launchy"
 require "colorize"
 
 require "learn_about_cats/version"

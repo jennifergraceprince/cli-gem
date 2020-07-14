@@ -106,14 +106,13 @@ class LearnAboutCats::CLI
 		puts "2 - History"
 		puts "3 - Personality"
 		puts "4 - Grooming"
-#		puts "5 - View On Web"
+		puts "5 - View On Web"
 		puts ""
 		puts "                 =^o.o^=".bold
 		puts ""
 #		puts ""
 #		puts "www.vetstreet.com#{breed.breed_url}".green.bold
 #		puts ""
-#		puts "Choose option 5.".blue.bold
 #		puts ""
 		puts "To search another breed or return to the main menu, type".yellow.bold + " PREVIOUS.".bold
 		input = gets.strip
@@ -132,9 +131,11 @@ class LearnAboutCats::CLI
 		when "4","grooming"
 			topic = "Grooming"
 			info = breed.grooming
-#		when "5", "view on web"
-#			topic ="View On Web"
-#			browser.goto(BASE PATH + breed.breed_url)
+		when "5", "view on web"
+			Launchy.open("http://www.vetstreet.com/" + breed.breed_url)
+			puts ""
+			puts "Opening the #{breed.name} detail page in your web browser.".red.bold
+			view_more_details(breed)
 		when "previous"
 			start
 		when "exit"
