@@ -92,7 +92,7 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "Did you know?".black.bold
 		puts ""
-		puts "#{breed.did_you_know}".yellow.bold
+		puts "#{breed.did_you_know}".green.bold
 		view_more_details(breed)
 	end
 
@@ -106,16 +106,15 @@ class LearnAboutCats::CLI
 		puts "2 - History"
 		puts "3 - Personality"
 		puts "4 - Grooming"
-		puts "5 - View On Web"
+#		puts "5 - View On Web"
 		puts ""
 		puts "                 =^o.o^=".black.bold
 		puts ""
-		puts "To open the #{breed.name}'s web page located at:".yellow.bold
-		puts ""
-		puts "www.vetstreet.com#{breed.breed_url}".green.bold
-		puts ""
-		puts "Choose option 5.".blue.bold
-		puts ""
+#		puts ""
+#		puts "www.vetstreet.com#{breed.breed_url}".green.bold
+#		puts ""
+#		puts "Choose option 5.".blue.bold
+#		puts ""
 		puts "To search another breed or return to the main menu, type".yellow.bold + " PREVIOUS.".black.bold
 		input = gets.strip
 		topic = nil
@@ -133,9 +132,9 @@ class LearnAboutCats::CLI
 		when "4","grooming"
 			topic = "Grooming"
 			info = breed.grooming
-		when "5", "view on web"
-			topic ="View On Web"
-			browser.goto(BASE PATH + breed.breed_url)
+#		when "5", "view on web"
+#			topic ="View On Web"
+#			browser.goto(BASE PATH + breed.breed_url)
 		when "previous"
 			start
 		when "exit"
