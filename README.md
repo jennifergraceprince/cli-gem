@@ -10,6 +10,7 @@ Enter the repository on via your command line, then execute the follow command:
 ```ruby
 bin/learn-about-cats
 ```
+Link to giphy demo: https://giphy.com/gifs/dry8LD0cbTS5B2HKZm
 
 ## Usage
 

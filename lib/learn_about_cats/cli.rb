@@ -193,7 +193,7 @@ class LearnAboutCats::CLI
 		end
 	end
 
-	def goodbye #upon exiting the program, the user is presented a thank you and cat artwork
+	def goodbye #upon exiting the program, the user is presented a goodbye message
 		puts ""
 		puts ""
 		puts "Thanks for coming!".bold.yellow
