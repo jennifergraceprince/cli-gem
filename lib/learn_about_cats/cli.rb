@@ -106,7 +106,7 @@ class LearnAboutCats::CLI
 		puts "2 - History"
 		puts "3 - Personality"
 		puts "4 - Grooming"
-		puts "5 - View On Web"
+#		puts "5 - View On Web"
 		puts ""
 		puts "                 =^o.o^=".black.bold
 		puts ""
@@ -133,9 +133,10 @@ class LearnAboutCats::CLI
 		when "4","grooming"
 			topic = "Grooming"
 			info = breed.grooming
-		when "5", "view on web"
-			topic ="View On Web"
-			browser.goto(BASE PATH + breed.breed_url)
+#		when "5", "view on web"
+#			topic ="View On Web"
+#			info = breed.breed_url
+#			puts "Opening In Your Default Web Browser"
 		when "previous"
 			start
 		when "exit"
@@ -149,6 +150,10 @@ class LearnAboutCats::CLI
 			view_more_details(breed)
 		end
 		view_topic(breed, topic, info)
+
+	end
+
+	def open_as_webpage
 
 	end
 
@@ -166,12 +171,16 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "1 - Keep learning about the #{breed.name} breed!".green.bold
 		puts "2 - Go back to the previous menu.".yellow.bold
+		puts "3 - Open As A Webpage".green.bold
 		input = gets.strip
 		case input.downcase
 		when "1"
 			view_more_details(breed)
 		when "2","history"
 			start
+		when "3"
+			open_as_webpage(BASE PATH + breed.breed_url)
+			puts "Opening in your default web browser.".yellow.bold
 		when "exit"
 			goodbye
 		else
