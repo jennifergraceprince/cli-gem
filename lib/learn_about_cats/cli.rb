@@ -40,7 +40,7 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "                 =^o.o^=".blue.bold
 		puts ""
-		puts "Enter the NAME or MENU NUMBER of a breed you'd like to learn about:".black.bold
+		puts "Enter the NAME or MENU NUMBER of a breed you'd like to learn about:".bold
 		input = gets.strip
 		if input.to_i > 0 && input.to_i <= breeds.length
 			view_breed_summary(LearnAboutCats::Cat.all[input.to_i - 1])
@@ -84,13 +84,13 @@ class LearnAboutCats::CLI
 		breed.add_details(details)
 		puts ""
 		puts "----------------------------------------".yellow.bold
-		puts "The #{breed.name} =^o.o^=".black.bold
+		puts "The #{breed.name} =^o.o^=".bold
 		puts "----------------------------------------".yellow.bold
 		puts ""
 		puts ""
 		puts "#{breed.summary}".blue.bold
 		puts ""
-		puts "Did you know?".black.bold
+		puts "Did you know?".bold
 		puts ""
 		puts "#{breed.did_you_know}".green.bold
 		view_more_details(breed)
@@ -98,9 +98,9 @@ class LearnAboutCats::CLI
 
 	def view_more_details(breed) #after more info is scraped from view_breed_summary, more options are presented to learn more about breed
 		puts ""
-		puts "Continue learning about the #{breed.name}:".black.bold
+		puts "Continue learning about the #{breed.name}:".bold
 		puts ""
-		puts "                 =^o.o^=".black.bold
+		puts "                 =^o.o^=".bold
 		puts ""
 		puts "1 - Description"
 		puts "2 - History"
@@ -108,14 +108,14 @@ class LearnAboutCats::CLI
 		puts "4 - Grooming"
 #		puts "5 - View On Web"
 		puts ""
-		puts "                 =^o.o^=".black.bold
+		puts "                 =^o.o^=".bold
 		puts ""
 #		puts ""
 #		puts "www.vetstreet.com#{breed.breed_url}".green.bold
 #		puts ""
 #		puts "Choose option 5.".blue.bold
 #		puts ""
-		puts "To search another breed or return to the main menu, type".yellow.bold + " PREVIOUS.".black.bold
+		puts "To search another breed or return to the main menu, type".yellow.bold + " PREVIOUS.".bold
 		input = gets.strip
 		topic = nil
 		info = nil
@@ -154,7 +154,7 @@ class LearnAboutCats::CLI
 	def view_topic(breed, topic, info) #once specific topic is selected, more information on that topic is presented to the user
 		puts ""
 		puts "----------------------------------------".yellow.bold
-		puts "#{breed.name} - #{topic}".black.bold
+		puts "#{breed.name} - #{topic}".bold
 		puts "----------------------------------------".yellow.bold
 		puts ""
 		if info.is_a?(String)
