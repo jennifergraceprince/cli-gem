@@ -4,10 +4,22 @@ class LearnAboutCats::CLI
 
 	def start
 		puts ""
+		puts "This program looks nicest on a terminal window with a light background and monospaced font.".bold.red
+		puts ""
 		puts ""
 		puts "       Learn all about kitty cats!".bold.blue
 		puts ""
-		puts "                =^o.o^=".blue.bold
+		puts " _._     _,-'""`-._".red
+		puts "(,-.`._,'(       |\\`-/|".red
+		puts "    `-.-' \\ )-`( , o o)".red
+		puts "          `-    |_``^``|_".red
+		puts "                                      .... hungry kitty!"
+		puts ""
+		puts "                                __QQ".blink.blue
+   	puts "                               (_)_\">".blink.blue
+    puts "                              _)".blink.blue
+		puts ""
+#		puts "                =^o.o^=".blue.bold
 		puts ""
 		breeds = create_cats
 		@i = 0
