@@ -4,11 +4,11 @@ class LearnAboutCats::CLI
 
 	def start
 		puts ""
-		puts "----------------------------------------"
-		puts "       Learn all about kitty cats!"
 		puts ""
-		puts "                 =^o.o^="
-		puts "----------------------------------------"
+		puts "       Learn all about kitty cats!".bold.blue
+		puts ""
+		puts "                =^o.o^=".blue.bold
+		puts ""
 		breeds = create_cats
 		@i = 0
 		@d = 9
@@ -26,21 +26,21 @@ class LearnAboutCats::CLI
 		puts ""
 		breeds[@i..@i+@d].each.with_index(@i + 1) {|b,i|puts "#{i} - #{b.name}"}
 		puts ""
-		puts "<- all ->" if @d != 49
-		puts "<- less  " if @d == 49
-		puts "  next ->" if @i == 0 && @d == 9
-		puts "<- previous || next ->" if @i >= 10 && @i+@d <49
-		puts "<- previous  " if @i+@d >= 49 && @d == 9
+		puts "<- all ->".blue.bold if @d != 49
+		puts "<- less  ".blue.bold if @d == 49
+		puts "  next ->".green.bold if @i == 0 && @d == 9
+		puts "<- previous |".yellow.bold + "| next ->".green.bold if @i >= 10 && @i+@d <49
+		puts "<- previous  ".yellow.bold if @i+@d >= 49 && @d == 9
 		puts ""
-		puts "type ALL to see the full list."
-		puts "type LESS from the full list to return to the truncated list."
-		puts "type NEXT to page through the list 10 at a time."
-		puts "type PREVIOUS to return to the preview view."
-		puts "type EXIT at any time to close the program."
+		puts "type ALL to see the full list.".green.bold
+		puts "type LESS from the full list to return to the truncated list.".yellow.bold
+		puts "type NEXT to page through the list 10 at a time.".green.bold
+		puts "type PREVIOUS to return to the preview view.".yellow.bold
+		puts "type EXIT at any time to close the program.".red.bold
 		puts ""
-		puts "                 =^o.o^="
+		puts "                 =^o.o^=".blue.bold
 		puts ""
-		puts "Enter the NAME or MENU NUMBER of a breed you'd like to learn about:"
+		puts "Enter the NAME or MENU NUMBER of a breed you'd like to learn about:".black.bold
 		input = gets.strip
 		if input.to_i > 0 && input.to_i <= breeds.length
 			view_breed_summary(LearnAboutCats::Cat.all[input.to_i - 1])
@@ -56,14 +56,14 @@ class LearnAboutCats::CLI
 			list_of_cats(breeds)
 		elsif input.downcase == "next" && @i+@d == 49
 			puts ""
-			puts "That's the whole list!"
+			puts "That's the whole list!".green.bold
 			list_of_cats(breeds)
 		elsif input.downcase == "next"
 			@i += 10
 			list_of_cats(breeds)
 		elsif input.downcase == "previous" && @i == 0
 			puts ""
-			puts "That's the whole darn list!"
+			puts "That's the whole darn list!".green.bold
 			list_of_cats(breeds)
 		elsif input.downcase == "previous"
 			@i -= 10
@@ -72,9 +72,9 @@ class LearnAboutCats::CLI
 			self.goodbye
 		else
 			puts ""
-			puts "Me-ow! That's not a valid input. Try a menu number or typing out the word you are selecting!"
+			puts "Me-ow! That's not a valid input. Try a menu number or typing out the word you are selecting!".red.bold
 			puts ""
-			puts "                 =^o.o^="
+			puts "                 =^o.o^=".red.bold
 			self.list_of_cats(breeds)
 		end
 	end
@@ -83,30 +83,40 @@ class LearnAboutCats::CLI
 		details = LearnAboutCats::Scraper.scrape_profile(BASE_PATH + breed.breed_url)
 		breed.add_details(details)
 		puts ""
-		puts "----------------------------------------"
-		puts "The #{breed.name}"
+		puts "----------------------------------------".yellow.bold
+		puts "The #{breed.name} =^o.o^=".black.bold
+		puts "----------------------------------------".yellow.bold
 		puts ""
-		puts "                 =^o.o^="
-		puts "----------------------------------------"
 		puts ""
-		puts "#{breed.summary}"
+		puts "#{breed.summary}".blue.bold
 		puts ""
-		puts "Did you know?"
-		puts "#{breed.did_you_know}"
+		puts "Did you know?".black.bold
+		puts ""
+		puts "#{breed.did_you_know}".yellow.bold
 		view_more_details(breed)
 	end
 
 	def view_more_details(breed) #after more info is scraped from view_breed_summary, more options are presented to learn more about breed
 		puts ""
-		puts "Continue learning about the #{breed.name}:"
+		puts "Continue learning about the #{breed.name}:".black.bold
 		puts ""
-		puts "                 =^o.o^="
+		puts "                 =^o.o^=".black.bold
 		puts ""
 		puts "1 - Description"
 		puts "2 - History"
 		puts "3 - Personality"
 		puts "4 - Grooming"
-		puts "To search another breed or return to the main menu, type PREVIOUS."
+		puts "5 - View On Web"
+		puts ""
+		puts "                 =^o.o^=".black.bold
+		puts ""
+		puts "To open the #{breed.name}'s web page located at:".yellow.bold
+		puts ""
+		puts "www.vetstreet.com#{breed.breed_url}".green.bold
+		puts ""
+		puts "Choose option 5.".blue.bold
+		puts ""
+		puts "To search another breed or return to the main menu, type".yellow.bold + " PREVIOUS.".black.bold
 		input = gets.strip
 		topic = nil
 		info = nil
@@ -123,13 +133,16 @@ class LearnAboutCats::CLI
 		when "4","grooming"
 			topic = "Grooming"
 			info = breed.grooming
+		when "5", "view on web"
+			topic ="View On Web"
+			browser.goto(BASE PATH + breed.breed_url)
 		when "previous"
 			start
 		when "exit"
 			goodbye
 		else
 			puts ""
-			puts "Uh oh! Not a valid input. Try a valid option."
+			puts "Uh oh! Not a valid input. Try a valid option.".red.bold
 			puts ""
 			puts "                 =^o.o^="
 			puts ""
@@ -141,9 +154,9 @@ class LearnAboutCats::CLI
 
 	def view_topic(breed, topic, info) #once specific topic is selected, more information on that topic is presented to the user
 		puts ""
-		puts "----------------------------------------"
-		puts "#{breed.name} - #{topic}"
-		puts "----------------------------------------"
+		puts "----------------------------------------".yellow.bold
+		puts "#{breed.name} - #{topic}".black.bold
+		puts "----------------------------------------".yellow.bold
 		puts ""
 		if info.is_a?(String)
 			puts "#{info}"
@@ -151,8 +164,8 @@ class LearnAboutCats::CLI
 			info.call
 		end
 		puts ""
-		puts "1 - Keep learning about the #{breed.name} breed!"
-		puts "2 - Go back to the previous menu."
+		puts "1 - Keep learning about the #{breed.name} breed!".green.bold
+		puts "2 - Go back to the previous menu.".yellow.bold
 		input = gets.strip
 		case input.downcase
 		when "1"
@@ -163,7 +176,7 @@ class LearnAboutCats::CLI
 			goodbye
 		else
 			puts ""
-			puts "Whoops! That isn't a valid input. Please try again :)"
+			puts "Whoops! That isn't a valid input. Please try again :)".red.bold
 			puts ""
 			view_topic(breed, topic, info)
 		end
@@ -172,13 +185,11 @@ class LearnAboutCats::CLI
 	def goodbye #upon exiting the program, the user is presented a thank you and cat artwork
 		puts ""
 		puts ""
-		puts "----------------------------------------"
-		puts "Hope you learned something new about cats!"
+		puts "Thanks for coming!".bold.yellow
 		puts ""
-		puts "                 =^o.o^="
+		puts "                 =^o.o^=".bold.black
 		puts ""
-		puts "MEOW CIAO!"
-		puts "----------------------------------------"
+		puts "MEOW CIAO!".green.blink
 		puts ""
 		exit
 	end
