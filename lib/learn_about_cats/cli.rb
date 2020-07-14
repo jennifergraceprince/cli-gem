@@ -4,7 +4,6 @@ class LearnAboutCats::CLI
 
 	def start
 		puts ""
-		puts "This program looks nicest on a terminal window with a light background and monospaced font.".bold.red
 		puts ""
 		puts ""
 		puts "       Learn all about kitty cats!".bold.blue
@@ -199,9 +198,16 @@ class LearnAboutCats::CLI
 		puts ""
 		puts "Thanks for coming!".bold.yellow
 		puts ""
-		puts "                 =^o.o^=".bold.black
+		puts " _._     _,-'""`-._".red
+		puts "(,-.`._,'(       |\\`-/|".red
+		puts "    `-.-' \\ )-`( , o o)".red
+		puts "          `-    |_``^``|_".red
+		puts "                                      .... MEOW CIAO!".green.blink
 		puts ""
-		puts "MEOW CIAO!".green.blink
+		puts "                                __QQ".blue
+   	puts "                               (_)_\">".blue
+    puts "                              _)".blue
+		puts ""
 		puts ""
 		exit
 	end
